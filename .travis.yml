@@ -26,25 +26,28 @@ android:
 
 before_install:
   - echo $ANDROID_TARGET
+  - touch $HOME/.android/repositories.cfg
 
 install:
-  - echo y | sdkmanager "ndk-bundle"
-  - echo y | sdkmanager "ndk;20.1.5948944"
-  - echo y | sdkmanager "cmake;3.6.4111459"
-  - echo y | sdkmanager "cmake;3.10.2.4988404"
+  - echo y | sdkmanager "ndk-bundle" --licenses
+  - echo y | sdkmanager "ndk;20.1.5948944" --licenses
+  - echo y | sdkmanager "cmake;3.6.4111459" --licenses
+  - echo y | sdkmanager "cmake;3.10.2.4988404" --licenses
 
 before_script:
   - export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk-bundle
   - export NDK_PATH=$ANDROID_NDK_ROOT
   - export FFMPEG_EXT_PATH="$(pwd)/extensions/ffmpeg/src/main/jni"
   - export HOST_PLATFORM="linux-x86_64"
-  - export ENABLED_DECODERS=(mp3 vorbis opus flac)
+  - export ENABLED_DECODERS=(mp3)
 
 script:
   - source .ci_tools/build_ffmpeg.sh
 
 deploy:
   provider: script
+  skip_cleanup: true
+  cleanup: false
   script: ./gradlew :extension-ffmpeg:clean :extension-ffmpeg:assembleRelease :extension-ffmpeg:bintrayUpload -PdryRun=false
   on:
     branch: ffmpeg_build
