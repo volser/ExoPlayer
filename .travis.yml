@@ -40,7 +40,7 @@ before_script:
   - export ROOT_PATH="$(pwd)"
   - export FFMPEG_EXT_PATH="$(pwd)/extensions/ffmpeg/src/main/jni"
   - export HOST_PLATFORM="linux-x86_64"
-  - export ENABLED_DECODERS="(mp3)"
+  - export ENABLED_DECODERS="mp3"
   - echo $NDK_PATH $ROOT_PATH $FFMPEG_EXT_PATH $HOST_PLATFORM $ENABLED_DECODERS
 
 script:
