@@ -40,7 +40,11 @@ for decoder in "${ENABLED_DECODERS[@]}"
 do
     COMMON_OPTIONS="${COMMON_OPTIONS} --enable-decoder=${decoder}"
 done
+printenv COMMON_OPTIONS
+printenv FFMPEG_EXT_PATH
+pwd
 cd "${FFMPEG_EXT_PATH}"
+pwd
 (git -C ffmpeg pull || git clone git://source.ffmpeg.org/ffmpeg ffmpeg)
 cd ffmpeg
 git checkout release/4.2
