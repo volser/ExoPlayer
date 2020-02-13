@@ -40,8 +40,8 @@ for decoder in "${ENABLED_DECODERS[@]}"
 do
     COMMON_OPTIONS="${COMMON_OPTIONS} --enable-decoder=${decoder}"
 done
-printenv COMMON_OPTIONS
-printenv FFMPEG_EXT_PATH
+echo $COMMON_OPTIONS
+echo $FFMPEG_EXT_PATH
 pwd
 cd "${FFMPEG_EXT_PATH}"
 pwd

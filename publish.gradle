@@ -19,7 +19,7 @@ if (project.ext.has("exoplayerPublishEnabled")
         bintrayKey = System.getenv('BINTRAY_API_KEY') // Get bintray Secret API Key
         artifactId = releaseArtifact
         desc = releaseDescription
-        publishVersion = releaseVersion + '-a.2'
+        publishVersion = releaseVersion + '-a.3'
         repoName = 'exoplayer'
         userOrg = 'volser'
         groupId = 'volser.exoplayer'
