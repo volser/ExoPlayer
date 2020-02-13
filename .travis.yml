@@ -37,12 +37,19 @@ install:
 before_script:
   - export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk-bundle
   - export NDK_PATH=$ANDROID_NDK_ROOT
+  - export ROOT_PATH="$(pwd)"
   - export FFMPEG_EXT_PATH="$(pwd)/extensions/ffmpeg/src/main/jni"
   - export HOST_PLATFORM="linux-x86_64"
   - export ENABLED_DECODERS=(mp3)
 
 script:
+  - pwd
   - source .ci_tools/build_ffmpeg.sh
+  - pwd
+  - ECHO $TRAVIS_BUILD_DIR
+  - ECHO ROOT_PATH
+  - ls -la
+  - chmod +x gradlew
   - ./gradlew clean :extension-ffmpeg:build
 
 deploy:
