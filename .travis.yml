@@ -46,7 +46,7 @@ script:
   - pwd
   - source .ci_tools/build_ffmpeg.sh
   - pwd
-  - cd "${FFMPEG_EXT_PATH}"
+  - cd "${ROOT_PATH}"
   - pwd
   - ./gradlew clean :extension-ffmpeg:build
 
