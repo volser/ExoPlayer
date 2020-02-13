@@ -46,10 +46,8 @@ script:
   - pwd
   - source .ci_tools/build_ffmpeg.sh
   - pwd
-  - ECHO $TRAVIS_BUILD_DIR
-  - ECHO ROOT_PATH
-  - ls -la
-  - chmod +x gradlew
+  - cd "${FFMPEG_EXT_PATH}"
+  - pwd
   - ./gradlew clean :extension-ffmpeg:build
 
 deploy:
