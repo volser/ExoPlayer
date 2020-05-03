@@ -28,15 +28,13 @@ COMMON_OPTIONS="
     --disable-everything
     --disable-avdevice
     --disable-avformat
+    --disable-swscale
     --disable-postproc
+    --disable-avfilter
     --disable-symver
     --disable-avresample
     --enable-swresample
-    --enable-swscale
-    --enable-avfilter
     --enable-decoder=mpeg2video
-    --enable-filter=yadif
-    --enable-filter=scale
     --extra-ldexeflags=-pie
     "
 TOOLCHAIN_PREFIX="${NDK_PATH}/toolchains/llvm/prebuilt/${HOST_PLATFORM}/bin"
