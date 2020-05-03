@@ -15,13 +15,16 @@ if (project.ext.has("exoplayerPublishEnabled")
         && project.ext.exoplayerPublishEnabled) {
     apply plugin: 'bintray-release'
     publish {
+        bintrayUser = System.getenv('BINTRAY_USER') // Get bintray User
+        bintrayKey = System.getenv('BINTRAY_API_KEY') // Get bintray Secret API Key
         artifactId = releaseArtifact
         desc = releaseDescription
-        publishVersion = releaseVersion
-        repoName = getBintrayRepo()
-        userOrg = 'google'
-        groupId = 'com.google.android.exoplayer'
+        publishVersion = releaseVersion + '-b.1'
+        repoName = 'exoplayer'
+        userOrg = 'volser'
+        groupId = 'volser.exoplayer'
         website = 'https://github.com/google/ExoPlayer'
+        dryRun = false
     }
 
     gradle.taskGraph.whenReady { taskGraph ->

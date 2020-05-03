@@ -1,5 +1,14 @@
 [
   {
+    "name": "My",
+    "samples": [
+      {
+        "name": "Lan.ua",
+        "uri": "http://tv.lan.ua/get_stream.php?id=78"
+      }
+    ]
+  },
+  {
     "name": "YouTube DASH",
     "samples": [
       {

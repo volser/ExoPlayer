@@ -73,7 +73,7 @@ android {
 }
 
 dependencies {
-    implementation project(modulePrefix + 'library-core')
+    implementation "com.google.android.exoplayer:exoplayer-core:$releaseVersion"
     implementation 'androidx.annotation:annotation:' + androidxAnnotationVersion
     compileOnly 'org.checkerframework:checker-qual:' + checkerframeworkVersion
     compileOnly 'org.jetbrains.kotlin:kotlin-annotations-jvm:' + kotlinAnnotationsVersion
@@ -85,3 +85,9 @@ ext {
     javadocTitle = 'FFmpeg extension'
 }
 apply from: '../../javadoc_library.gradle'
+
+ext {
+    releaseArtifact = 'extension-ffmpeg'
+    releaseDescription = 'FFmpeg extension for ExoPlayer.'
+}
+apply from: '../../publish.gradle'

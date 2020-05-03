@@ -28,12 +28,15 @@ COMMON_OPTIONS="
     --disable-everything
     --disable-avdevice
     --disable-avformat
-    --disable-swscale
     --disable-postproc
-    --disable-avfilter
     --disable-symver
     --disable-avresample
     --enable-swresample
+    --enable-swscale
+    --enable-avfilter
+    --enable-decoder=mpeg2video
+    --enable-filter=yadif
+    --enable-filter=scale
     --extra-ldexeflags=-pie
     "
 TOOLCHAIN_PREFIX="${NDK_PATH}/toolchains/llvm/prebuilt/${HOST_PLATFORM}/bin"
@@ -41,7 +44,11 @@ for decoder in "${ENABLED_DECODERS[@]}"
 do
     COMMON_OPTIONS="${COMMON_OPTIONS} --enable-decoder=${decoder}"
 done
+echo $COMMON_OPTIONS
+echo $FFMPEG_EXT_PATH
+pwd
 cd "${FFMPEG_EXT_PATH}"
+pwd
 (git -C ffmpeg pull || git clone git://source.ffmpeg.org/ffmpeg ffmpeg)
 cd ffmpeg
 git checkout release/4.2
