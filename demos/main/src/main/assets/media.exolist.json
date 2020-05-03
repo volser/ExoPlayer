@@ -4,7 +4,7 @@
     "samples": [
       {
         "name": "Lan.ua",
-        "uri": "http://tv.lan.ua:88/get_stream.php?id=78"
+        "uri": "http://tv.lan.ua/get_stream.php?id=78"
       }
     ]
   },
